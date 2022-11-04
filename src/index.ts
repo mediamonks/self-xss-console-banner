@@ -7,7 +7,7 @@
  * @param headingImpact Second heading for explaining possible impact of self-xss
  * @param body Additional information
  */
-export default function selfXssBanner(
+export default function selfXssConsoleBanner(
   clearConsole: boolean = false,
   heading?: string,
   headingImpact?: string,
