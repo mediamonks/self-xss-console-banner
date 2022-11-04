@@ -24,6 +24,16 @@ import xssBanner from '@mediamonks/self-xss-console-banner';
 xssBanner(false, 'Stop!', 'Do not paste anything here, close this window!', 'Please contact us via security@example.com');
 ```
 
+## SSR (Server Side Rendering)
+When using SSR make sure that this module is not included. It's possible to use a dynamic import to execute it only
+on client side.
+
+```
+const selfXssBanner = (await import('@mediamonks/self-xss-console-banner')).default;
+
+selfXssBanner();
+```
+
 ## Default warning
 ![default warning](./self-xss-console-banner.webp?raw=true "Self-xss warning example")
 
