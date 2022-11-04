@@ -7,6 +7,7 @@
     "dist",
     "self-xss-console-banner.webp"
   ],
+  "type": "module",
   "scripts": {
     "dev": "open-cli http://localhost:8400 && run-s compile:ts && run-p watch:ts serve:*",
     "watch:ts": "tsc -w -p ./tsconfig.watch.json",
@@ -45,10 +46,5 @@
     "open-cli": "^7.1.0",
     "prettier": "^2.7.1",
     "typescript": "^4.8.4"
-  },
-  "engines": {
-    "node": ">=18",
-    "npm": ">=8",
-    "yarn": "unsupported"
   }
 }
