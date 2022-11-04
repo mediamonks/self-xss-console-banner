@@ -1,0 +1,54 @@
+{
+  "name": "@mediamonks/self-xss-console-banner",
+  "version": "0.0.1",
+  "description": "Self XSS warning module",
+  "main": "dist/index.js",
+  "files": [
+    "dist",
+    "self-xss-console-banner.webp"
+  ],
+  "scripts": {
+    "dev": "open-cli http://localhost:8400 && run-s compile:ts && run-p watch:ts serve:*",
+    "watch:ts": "tsc -w -p ./tsconfig.watch.json",
+    "compile:ts": "tsc -p ./tsconfig.json",
+    "serve:example": "http-server -p 8400 -c-1 ./example -s",
+    "serve:dist": "http-server -p 8401 --cors -c-1 dist -s",
+    "build": "tsc -b --clean ./tsconfig.build.json; tsc -b ./tsconfig.build.json",
+    "prettier": "prettier --write 'src/**/*.ts'",
+    "postinstall": "husky install"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "homepage": "https://github.com/mediamonks/self-xss-console-banner#readme",
+  "bugs": {
+    "url": "https://github.com/mediamonks/self-xss-console-banner/issues"
+  },
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/mediamonks/self-xss-console-banner.git"
+  },
+  "keywords": [
+    "self-xss",
+    "self-xss banner",
+    "self-xss console banner",
+    "xss"
+  ],
+  "author": "frontend.monks",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^18.11.9",
+    "http-server": "^14.1.1",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "npm-run-all": "^4.1.5",
+    "open-cli": "^7.1.0",
+    "prettier": "^2.7.1",
+    "typescript": "^4.8.4"
+  },
+  "engines": {
+    "node": ">=18",
+    "npm": ">=8",
+    "yarn": "unsupported"
+  }
+}
