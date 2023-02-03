@@ -8,11 +8,11 @@
  * @param body Additional information
  */
 export default function selfXssConsoleBanner(
-  clearConsole: boolean = false,
+  clearConsole?: boolean,
   heading?: string,
   headingImpact?: string,
   body?: string
-) {
+): void {
   if (typeof window === "undefined" || typeof console === "undefined") {
     return;
   }
@@ -29,15 +29,17 @@ export default function selfXssConsoleBanner(
     (hasProcess && process.env.SELF_XSS_BODY) ||
     "Unless you understand exactly what you are doing, close this window and stay safe.";
 
-  clearConsole && console.clear();
+  if (clearConsole) {
+    console.clear();
+  }
 
   console.log(
-    "%c" + `${logHeading}`,
+    `%c${logHeading}`,
     "color: red; -webkit-text-stroke: 2px black; font-size: 72px; font-weight: bold;"
   );
   console.log(
-    "%c" + `${logHeadingImpact}`,
+    `%c${logHeadingImpact}`,
     "font-size: 18px; font-weight: bold; color: red;"
   );
-  console.log("%c" + `${logBody}`, "font-size: 16px;");
+  console.log(`%c${logBody}`, "font-size: 16px;");
 }
