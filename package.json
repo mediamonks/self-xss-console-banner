@@ -10,6 +10,8 @@
   "type": "module",
   "scripts": {
     "dev": "open-cli http://localhost:8400 && run-s compile:ts && run-p watch:ts serve:*",
+    "lint": "eslint --ext .ts src",
+    "lint:fix": "npm run lint -- --fix",
     "watch:ts": "tsc -w -p ./tsconfig.watch.json",
     "compile:ts": "tsc -p ./tsconfig.json",
     "serve:example": "http-server -p 8400 -c-1 ./example -s",
@@ -35,11 +37,33 @@
     "self-xss console banner",
     "xss"
   ],
+  "eslintConfig": {
+    "overrides": [
+      {
+        "files": [
+          "*.ts"
+        ],
+        "parserOptions": {
+          "project": "./tsconfig.json"
+        },
+        "extends": [
+          "@mediamonks/eslint-config",
+          "@mediamonks/eslint-config-typescript"
+        ],
+        "rules": {
+          "no-console": "off"
+        }
+      }
+    ]
+  },
   "author": "frontend.monks",
   "license": "MIT",
   "devDependencies": {
+    "@mediamonks/eslint-config": "^2.0.7",
+    "@mediamonks/eslint-config-typescript": "^1.0.9",
     "@mediamonks/prettier-config": "^1.0.1",
     "@types/node": "^18.11.9",
+    "eslint": "^8.33.0",
     "http-server": "^14.1.1",
     "husky": "^8.0.1",
     "lint-staged": "^13.0.3",
