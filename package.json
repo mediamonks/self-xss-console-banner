@@ -38,6 +38,7 @@
   "author": "frontend.monks",
   "license": "MIT",
   "devDependencies": {
+    "@mediamonks/prettier-config": "^1.0.1",
     "@types/node": "^18.11.9",
     "http-server": "^14.1.1",
     "husky": "^8.0.1",
