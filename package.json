@@ -1,6 +1,6 @@
 {
   "name": "@mediamonks/self-xss-console-banner",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Self XSS warning module",
   "main": "dist/index.js",
   "files": [
